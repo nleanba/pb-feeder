@@ -3,7 +3,7 @@ const BODY = document.createElement('body');
 root.innerHTML = '';
 root.append(BODY);
 const STYLE = document.createElement('style');
-STYLE.innerHTML = '__MCC__style.css__';
+STYLE.innerHTML = '__NCC__style.css__';
 BODY.append(STYLE);
 sbot.whoami((err, keys) => {
     if (err)

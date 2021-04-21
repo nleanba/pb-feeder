@@ -1,9 +1,12 @@
 /**
  * Noam’s Crappy Compiler
  *
- * replaces '__MCC__style.css__' in JSFILE by a template-string containing the-
- * contents of CSSFILE
+ * replaces '__NCC__style.css__' in JSFILE by a template-string containing the
+ * contents of CSSFILE and generates OUTFILE.
  *
+ * JSFILE ──┐
+ *          ├─╴» OUTFILE
+ * CSSFILE ╶┘
  */
 
 const fs = require('fs')
@@ -31,7 +34,7 @@ function updateJS () {
       console.error(err)
       return
     }
-    const content = jsstring.replace(/'__MCC__style\.css__'/g, '`' + css + '`')
+    const content = jsstring.replace(/'__NCC__style\.css__'/g, '`' + css + '`')
     fs.writeFile(OUTFILE, content, err => {
       if (err) {
         console.error(err)

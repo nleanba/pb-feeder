@@ -3,15 +3,17 @@ declare var sbot: any
 declare var root: Element
 declare var pull: any
 
-// SETUP
+// DOM SETUP
 
 const BODY = document.createElement('body')
 root.innerHTML = ''
 root.append(BODY)
 
 const STYLE = document.createElement('style')
-STYLE.innerHTML = '__MCC__style.css__'
+STYLE.innerHTML = '__NCC__style.css__' // NCC will replace this with the contents of style.css
 BODY.append(STYLE)
+
+// SSB SETUP
 
 sbot.whoami((err: any, keys: any) => {
   if (err) console.log('could not get keys, got err', err)
