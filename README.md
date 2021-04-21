@@ -2,7 +2,7 @@
 
 This is an example app that can be published on Secure Scuttlebutt with
 
-    npm run deploy-app
+    npm run build && npm run deploy-app
 
 And run in a browser with
 
