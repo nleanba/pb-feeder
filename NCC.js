@@ -35,6 +35,7 @@ function updateJS () {
       return
     }
     const content = jsstring.replace(/'__NCC__style\.css__'/g, '`' + css + '`')
+    if (content === jsstring) console.error('NCC: !!!!! No replacement made !')
     fs.writeFile(OUTFILE, content, err => {
       if (err) {
         console.error(err)

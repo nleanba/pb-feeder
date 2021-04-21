@@ -1,3 +1,25 @@
 * {
-  color: red;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #242424;
+  padding: 0.5rem;
+}
+
+.mini {
+  color: #242424;
+  font-size: x-small;
+  line-height: 1rem;
 }

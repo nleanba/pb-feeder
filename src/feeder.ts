@@ -3,22 +3,42 @@ declare var sbot: any
 declare var root: Element
 declare var pull: any
 
+// HELPERS
+
+function EL (
+  nodes: (string|Node)[],
+  type: keyof HTMLElementTagNameMap = 'div',
+  attributes?: { [key: string]: string }
+) {
+  const element = document.createElement(type)
+  if (attributes) {
+    for (let p in attributes) {
+      element.setAttribute(p, attributes[p])
+    }
+  }
+  element.append(...nodes)
+  return element
+}
+
 // DOM SETUP
 
 const BODY = document.createElement('body')
 root.innerHTML = ''
 root.append(BODY)
 
-const STYLE = document.createElement('style')
-STYLE.innerHTML = '__NCC__style.css__' // NCC will replace this with the contents of style.css
-BODY.append(STYLE)
+const STYLE_E = document.createElement('style')
+STYLE_E.innerHTML = '__NCC__style.css__' // NCC will replace this with the contents of style.css
+BODY.append(STYLE_E)
+
+const WHOAMI_E = EL([], 'div', { class: 'mini' })
+BODY.append(EL([EL(['FEEDER']), WHOAMI_E],'header'))
 
 // SSB SETUP
 
 sbot.whoami((err: any, keys: any) => {
   if (err) console.log('could not get keys, got err', err)
   else {
-    BODY.append(keys.id)
+    WHOAMI_E.append(keys.id)
   }
 })
 
